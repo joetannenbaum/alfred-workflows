@@ -1,6 +1,6 @@
 # Alfred Workflow: Warp Launch Configuration
 
-This workflow allows you to open a [Warp](https://warp.dev) [launch configuration](https://docs.warp.dev/features/sessions/launch-configurations) directly from Alfred.
+This workflow allows you to open a [Warp launch configuration](https://docs.warp.dev/features/sessions/launch-configurations) directly from Alfred.
 
 ![Alfred Screenshot](images/alfred-warp-launch-config.png)
 
