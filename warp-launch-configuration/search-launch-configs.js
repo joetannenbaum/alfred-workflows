@@ -53,17 +53,22 @@ function queryRegex(query) {
     return new RegExp(pat.join('.*'), 'i');
 }
 
+function toJSON(files) {
+    return JSON.stringify({ items: files.map(alfredItem) }, null, 2);
+}
+
 function run(argv) {
     const query = argv.length ? argv[0] : null;
-    let files = findFiles(folder, extension);
 
-    if (query) {
-        const regex = queryRegex(query);
+    const files = findFiles(folder, extension);
 
-        files = files.filter(
-            (p) => p.lastPathComponent.js.match(regex) !== null,
-        );
+    if (!query) {
+        return toJSON(files);
     }
 
-    return JSON.stringify({ items: files.map(alfredItem) }, null, 2);
+    const regex = queryRegex(query);
+
+    return toJSON(
+        files.filter((p) => p.lastPathComponent.js.match(regex) !== null),
+    );
 }
